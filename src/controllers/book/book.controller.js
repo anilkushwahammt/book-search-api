@@ -1,5 +1,7 @@
 const bookSearchService  = require('../../services/book')
 const logger = require('../../config/logger')
+const validator = require('../../validators')
+const {validateBookSearchCriteria} = require('../../validators/book.validation')
 /**
  * route:  book/search
  * target: takes search criteria in query parameter and based on this filter out book 
@@ -8,6 +10,7 @@ const logger = require('../../config/logger')
  const searchBooks = async(req, res, next) => {
     try {
         const filterCriteria = req.query;
+        await validateBookSearchCriteria(filterCriteria);
         logger.info(`Request Received for Book Search with filter criteria: ${JSON.stringify(filterCriteria)}`);
         const filterdBooks = await bookSearchService.searchBooks(filterCriteria);  
         logger.info(`Book response obtained successfully with result count: ${filterdBooks.length} `);
