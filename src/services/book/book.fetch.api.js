@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const logger = require('../../config/logger')
 
+
 /**
  * Takes the API Endpoint and Header and initiate the API communication and returns JSON response
  * @param {*} uri 

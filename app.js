@@ -1,9 +1,10 @@
 // imports
 const express = require('express');
 const bookRouter = require('./src/routes/book.route');
-
+require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 
 
@@ -28,8 +29,8 @@ app.use((err, req, res, next) => {
 });
 
 // start the server
-app.listen(8000, () => {
-    console.log(`server running at port 8000...`);
+app.listen(PORT, () => {
+    console.log(`server running at port ${PORT} ...`);
 });
 
 

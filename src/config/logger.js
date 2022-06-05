@@ -1,6 +1,7 @@
 const { createLogger, format, transports } = require('winston')
+require('dotenv').config();
 
-const LOG_LEVEL = process.env.LOG_LEVEL || 'info'
+const LOG_LEVEL = process.env.LOG_LEVEL || 'error'
 
 const formatError = format((info) => {
   const _formatError = ({ isBoom, message, data, output, stack }) => ({ error: { isBoom, message, data, output, stack } })
