@@ -170,6 +170,13 @@ describe("Testing Book Search API with Query Parmeters", () => {
         expect(response.status).to.have.equal(500);
         expect(bookResult.error.message).contains('is not allowed to be empty');
     })
+
+    it("it should return  book result after applying category and price filter /book/search?category=Internet&price=40", async () => {
+        const response =  await request.get(`/book/search?category=Internet&price=40`);
+        const bookResult = response.body;
+        expect(response.status).to.have.equal(200);
+        expect(bookResult.length).to.have.equal(3);
+    })
 })
 
 
