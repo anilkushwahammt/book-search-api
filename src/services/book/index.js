@@ -1,6 +1,6 @@
-const { searchForBooks } = require('./book.service')
+const { searchBooks } = require('./book.service')
 
-// exports
+// All book service related method that you want to be available. It help us in autoimport
 module.exports = {
-    searchForBooks
+    searchBooks
 }

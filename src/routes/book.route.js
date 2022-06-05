@@ -1,11 +1,10 @@
-// imports
 const express = require('express');
 const bookController = require('../controllers/book')
 
 
-// constants
-const router = express.Router();
-router.get('/search', bookController.searchBooks);
+// router specific to book related operations handling
+const bookRouter = express.Router();
+bookRouter.get('/search', bookController.searchBooks);
 
 // exports
-module.exports = router;
+module.exports = bookRouter;

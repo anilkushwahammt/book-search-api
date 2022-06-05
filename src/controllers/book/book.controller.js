@@ -1,17 +1,14 @@
 const bookSearchService  = require('../../services/book')
 /**
- * route: book/search
- * target: to search for books by search params
+ * route:  book/search
+ * target: takes search criteria in query parameter and based on this filter out book 
+ *         search response obtained from third party api
  */
  const searchBooks = async(req, res, next) => {
     try {
-
-        const searchParams = req.params.searchParams;
-        const page = req.params.page;
-
-        const searchResult = await bookSearchService.searchForBooks(searchParams, page);
-        res.send(searchResult);
-
+        const filterCriteria = req.query;
+        const filterdBooks = await bookSearchService.searchBooks(filterCriteria);  
+        res.send(filterdBooks);
     } catch (err) {
         next(err);
     }
