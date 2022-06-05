@@ -48,7 +48,7 @@ Its objective is to provide book search api that provides book details from thir
 
 ## Low Level Diagram:
 
-![bc.drawio (1)](bc.drawio (1).png)
+![](bc.drawio (1).png)
 
 ## Tech used:
 
