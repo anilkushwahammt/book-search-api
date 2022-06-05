@@ -4,8 +4,8 @@
   "description": "Expose a rest api for book details",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app",
+    "test": "mocha test/book/*.js --timeout 5000"
   },
   "repository": {
     "type": "git",
@@ -27,5 +27,10 @@
     "boom": "^7.1.1",
     "@hapi/joi": "^17.1.1",
     "@joi/date": "^2.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^8.3.0",
+    "chai-http": "^4.0.0"
   }
 }
