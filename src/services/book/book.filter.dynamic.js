@@ -1,5 +1,6 @@
 const logger = require('../../config/logger')
 const _ = require('lodash')
+const {BAD_REQUEST} = require('../../enum/book.error')
 
 const filteredBooks = async(bookResponse,filterCriteria) => {
     const filteredBook = bookResponse.filter(book => {
@@ -9,7 +10,9 @@ const filteredBooks = async(bookResponse,filterCriteria) => {
         for (key in filterCriteria) {
            const data =  _.get(book, key);
            if(_.isNil(data)){
-                throw new Error(`$key is invalid query string`);
+            var err =  new Error(`${key} is invalid query parameter`);
+            err.status = BAD_REQUEST.HTTP_STATUS_CODE;
+            throw err;
            }
            if(_.isArray(data)){
                isValid = isValid && data.includes(filterCriteria[key]);
@@ -29,6 +32,7 @@ const filteredBooks = async(bookResponse,filterCriteria) => {
         return isValid;
     }catch{
         logger.error(`Error occured while processing book ${book.isbn}`, err);
+        throw err;
     }
   });
   return filteredBook;
