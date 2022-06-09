@@ -1,5 +1,5 @@
 const bookFetchAPI  = require('./book.fetch.api')
-const bookFilterService  = require('./book.filter')
+const bookFilterService  = require('./book.filter.dynamic')
 const logger = require('../../config/logger')
 require('dotenv').config();
 const _ = require('lodash')

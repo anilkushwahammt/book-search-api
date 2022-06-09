@@ -9,10 +9,9 @@ const SEARCH_QUERY_PRAMETERS = Object.freeze({
     SHORT_DESCRIPTION: 'shortDescription',
     STATUS: 'status',
     AUTHOR: 'author',
+    AUTHORS: 'authors',
     CATEGORY: 'category'
 })
-  
-  
   
 module.exports = {
     SEARCH_QUERY_PRAMETERS

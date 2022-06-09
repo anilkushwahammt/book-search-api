@@ -10,7 +10,7 @@ const {validateBookSearchCriteria} = require('../../validators/book.validation')
  const searchBooks = async(req, res, next) => {
     try {
         const filterCriteria = req.query;
-        await validateBookSearchCriteria(filterCriteria);
+       // await validateBookSearchCriteria(filterCriteria); As Query Parameters are dynamic
         logger.info(`Request Received for Book Search with filter criteria: ${JSON.stringify(filterCriteria)}`);
         const filterdBooks = await bookSearchService.searchBooks(filterCriteria);  
         logger.info(`Book response obtained successfully with result count: ${filterdBooks.length} `);
