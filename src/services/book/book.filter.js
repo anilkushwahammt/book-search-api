@@ -42,7 +42,7 @@ const filteredBooks = async(bookResponse,filterCriteria) => {
         logger.debug(`filter process completed for ${book.title}`);
         return isValid;
     }catch{
-        logger.error(`Error occured while processing book ${book.isbn}`, err);
+        logger.error(`Error occured while processing book ${book.isbn}`);
     }
   });
   return filteredBook;

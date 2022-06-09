@@ -16,7 +16,7 @@ const {validateBookSearchCriteria} = require('../../validators/book.validation')
         logger.info(`Book response obtained successfully with result count: ${filterdBooks.length} `);
         res.send(filterdBooks);
     } catch (err) {
-        logger.error(`Error occured while searching for Books`, err)
+        logger.error(`Error occured while searching for Books`,err)
         next(err);
     }
 }

@@ -21,14 +21,12 @@ const searchBooks = async(filterCriteria) => {
 
     if(_.isNil(bookResponse)){
         bookResponse = await bookFetchAPI.fetchAPIResponseJSON(BOOK_URI,bookHeader);
-        logger.info(`Book Response obtained from API - ${BOOK_URI} with result count: ${bookResponse.length}`);
         redis.setex(BOOK_URI, CACHE_DURATION, JSON.stringify(bookResponse));
     }else{
         bookResponse = JSON.parse(bookResponse);
         logger.info(` Book Response Served From Cache `);
     }
     const filteredBooks = await bookFilterService.filteredBooks(bookResponse,filterCriteria);
-    logger.info(`Book response filtered , after filter result count: ${filteredBooks.length}`);
     return filteredBooks;
 }
 

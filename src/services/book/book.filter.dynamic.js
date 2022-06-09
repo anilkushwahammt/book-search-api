@@ -9,7 +9,7 @@ const filteredBooks = async(bookResponse,filterCriteria) => {
         logger.debug(`filter process started for ${book.title}`);
         for (key in filterCriteria) {
            const data =  _.get(book, key);
-           if(_.isNil(data)){
+           if(_.isEmpty(filterCriteria[key]) ){
             var err =  new Error(`${key} is invalid query parameter`);
             err.status = BAD_REQUEST.HTTP_STATUS_CODE;
             throw err;
@@ -31,7 +31,7 @@ const filteredBooks = async(bookResponse,filterCriteria) => {
         logger.debug(`filter process completed for ${book.title}`);
         return isValid;
     }catch{
-        logger.error(`Error occured while processing book ${book.isbn}`, err);
+        logger.error(`Error occured while processing book ${book.isbn}`);
         throw err;
     }
   });

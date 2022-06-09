@@ -10,12 +10,11 @@ const logger = require('../../config/logger')
  */
 const fetchAPIResponseJSON = async(uri,header) =>{
     try {
-        logger.info(`API Call started for uri - ${uri} with header ${JSON.stringify(header)}`);
         const response = await fetch(uri,header);
         logger.info(`API Call respnse obtained for uri -${uri} `);
         return Promise.resolve(response.json());
     } catch (err) {
-        logger.error(`Error occured while fetching API details for Books`, err)
+        logger.error(`Error occured while fetching API details for Books`)
         return Promise.reject(err);
     }
 }
