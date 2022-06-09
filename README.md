@@ -78,6 +78,8 @@ Its objective is to provide book search api that provides book details from thir
 - [x] "chai": "^4.1.2",
 - [x] "mocha": "^8.3.0",
 - [x] "chai-http": "^4.0.0"
+- [x]  "redis": "^2.8.0",
+- [x]  "bluebird": "^3.5.1"
 
 ## How to install & run:
 
@@ -110,6 +112,12 @@ npm install
    LOG_LEVEL=error
    BOOK_URI=https://run.mocky.io/v3/d7f02fdc-5591-4080-a163-95a08ce6895e
    ```
+
+### Run the Redis Server
+
+```bash
+docker-compose up
+```
 
 ### Run the project
 
@@ -144,7 +152,7 @@ npm test
 You can be sure that all test cases should pass
 
 ```
- 23 passing (14s)
+ 22 passing (14s)
 ```
 
 
